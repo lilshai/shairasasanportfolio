@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shaira Sasan | Portfolio</title>
+ 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600;700;800&family=Libre+Franklin:wght@400;500;600;700&family=Montserrat:ital,wght@0,400;0,600;0,800;0,900;1,500&family=Nanum+Brush+Script&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet" />
+ 
+  <style>
+    /* ============ THEME (black + violet, dark mode) ============ */
+    :root {
+      --bg: #08060f;
+      --bg-soft: #120d22;
+      --text: #f4f1ff;
+      --muted: #b6aed3;
+      --violet: #8b5cf6;
+      --violet-light: #a78bfa;
+      --violet-dark: #5b21b6;
+      --outline: rgba(139, 92, 246, 0.28);
+      --bodoni: "Bodoni MT", "Bodoni Moda", "Didot", serif;
+      --franklin: "Franklin Gothic Medium", "Libre Franklin", "Arial Narrow", sans-serif;
+      --home-font: var(--franklin);
+    }
+ 
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+ 
+    body {
+      font-family: "Montserrat", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: auto;
+    }
+ 
+    a { color: inherit; text-decoration: none; }
+ 
+    /* ============ HOME / HERO ============ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 75% 40%, rgba(139, 92, 246, 0.22), transparent 55%),
+        var(--bg);
+    }
+ 
+    .bg-text {
+      position: absolute;
+      top: 14%;
+      left: -2%;
+      font-size: clamp(90px, 19vw, 300px);
+      font-weight: 900;
+      letter-spacing: 4px;
+      white-space: nowrap;
+      color: transparent;
+      -webkit-text-stroke: 2px var(--outline);
+      user-select: none;
+      pointer-events: none;
+      z-index: 0;
+    }
+ 
+    nav {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 68px;
+      padding: 28px 5vw;
+      font-family: var(--home-font);
+      font-weight: 500;
+      font-size: 16px;
+    }
+ 
+    nav a { position: relative; transition: color 0.3s; }
+    nav a:hover { color: var(--violet-light); }
+ 
+    nav a.active {
+      background: var(--violet);
+      color: #fff;
+      padding: 4px 22px;
+      border-radius: 999px;
+      box-shadow: 0 0 18px rgba(139, 92, 246, 0.6);
+    }
+ 
+    nav .divider { font-weight: 400; color: var(--muted); }
+    nav .nav-name { font-weight: 700; color: var(--violet-light); }
+ 
+    .content {
+      position: relative;
+      z-index: 5;
+      width: min(38%, 520px);
+      margin-left: 5vw;
+      margin-top: 14vh;
+    }
+ 
+    .content h1 {
+      font-size: clamp(40px, 6vw, 80px);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+      background: linear-gradient(90deg, #fff 40%, var(--violet-light));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+ 
+    .content p {
+      font-family: var(--home-font);
+      font-size: 14px;
+      line-height: 1.6;
+      font-weight: 500;
+      color: var(--muted);
+      max-width: 480px;
+      text-align: justify;
+    }
+ 
+    .korean {
+      margin-top: 40px;
+      font-family: "Nanum Brush Script", cursive;
+      font-size: clamp(42px, 5vw, 64px);
+      line-height: 1.1;
+      color: var(--violet-light);
+      transform: rotate(-6deg) skewX(-6deg);
+      transform-origin: left center;
+      text-shadow: 0 0 22px rgba(139, 92, 246, 0.55);
+    }
+ 
+    .buttons { display: flex; gap: 14px; margin-top: 40px; }
+ 
+    .btn {
+      font-size: 11px;
+      font-weight: 800;
+      padding: 7px 22px;
+      border-radius: 999px;
+      border: 2px solid var(--violet);
+      transition: all 0.3s;
+    }
+ 
+    .btn.filled { background: var(--violet); color: #fff; }
+    .btn.outline { background: transparent; color: var(--text); }
+ 
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
+    }
+ 
+    .btn.outline:hover { background: var(--violet); }
+ 
+    .signature { position: absolute; left: 5vw; bottom: 22px; z-index: 6; }
+    .signature .top { font-size: 15px; font-weight: 800; letter-spacing: 1px; }
+ 
+    @font-face {
+      font-family: "Brittany Signature";
+      src: local("Brittany Signature"),
+           local("BrittanySignature"),
+           url("fonts/BrittanySignature.otf") format("opentype"),
+           url("fonts/BrittanySignature.ttf") format("truetype");
+      font-display: swap;
+    }
+ 
+    .signature .script {
+      font-family: "Brittany Signature", "Mrs Saint Delafield", cursive;
+      font-style: normal;
+      font-size: 18px;
+      line-height: 1;
+      margin-top: -4px;
+      color: var(--violet-light);
+      text-shadow: 0 0 14px rgba(139, 92, 246, 0.5);
+    }
+ 
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      clip-path: polygon(78% 0, 100% 0, 100% 100%, 36% 100%);
+    }
+ 
+    .hero-image img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 60%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      background: linear-gradient(160deg, var(--violet-dark), var(--bg-soft) 60%);
+    }
+ 
+    .hero-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, #08060f 0%, rgba(8, 6, 15, 0.6) 15%, transparent 40%);
+      pointer-events: none;
+    }
+ 
+    .diagonal-line {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+      background: var(--violet-light);
+      clip-path: polygon(77.8% 0, 78.3% 0, 36.3% 100%, 35.8% 100%);
+      filter: drop-shadow(0 0 8px var(--violet));
+      -webkit-mask-image: linear-gradient(to bottom, #000 80%, transparent 100%);
+      mask-image: linear-gradient(to bottom, #000 80%, transparent 100%);
+    }
+ 
+    .dots {
+      position: absolute;
+      right: 2.5vw;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 8;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+ 
+    .dots span {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--violet);
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+ 
+    .dots span:first-child { background: transparent; border: 2px solid var(--violet); }
+    .dots span:hover { transform: scale(1.4); }
+ 
+    /* ============ ABOUT ============ */
+    .about {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      /* The top edge is the same dark color as the bottom of the home page,
+         so there is no cut. It then fades into violet toward the right. */
+      background:
+        linear-gradient(to bottom, #08060f 0%, rgba(8, 6, 15, 0) 38%),
+        linear-gradient(100deg, #08060f 0%, #1d0a45 45%, #6d28d9 100%);
+    }
+ 
+    .about-photo {
+      position: absolute;
+      left: -3%;
+      top: 6.75vw;
+      width: 106%;
+      height: 21.5vw;
+      z-index: 1;
+      overflow: hidden;
+      transform: rotate(-5.5deg);
+      transform-origin: center center;
+    }
+ 
+    .about-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center middle;   /* change to center top / center 30% to move your photo up or down in the strip */
+      background: linear-gradient(160deg, var(--violet-dark), var(--bg-soft) 60%);
+    }
+ 
+    .about-band {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      background: var(--violet);
+      clip-path: polygon(0 17.1%, 100% 0, 100% 7.9%, 0 25%);
+      filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.5));
+    }
+ 
+    .about-band-name {
+      position: absolute;
+      left: 3.9%;
+      top: 18%;
+      z-index: 4;
+      font-family: var(--home-font);
+      font-size: 20px;
+      font-weight: 500;
+      color: #fff;
+      white-space: nowrap;
+      transform: rotate(-5.5deg);
+      transform-origin: left center;
+    }
+ 
+    .about-title {
+      position: absolute;
+      left: 52.9%;
+      top: 51.8%;
+      z-index: 5;
+      transform: translate(-50%, -50%) rotate(-5.5deg);
+      font-family: "Montserrat", sans-serif;
+      font-weight: 900;
+      font-size: 7.6vw;
+      line-height: 1;
+      text-transform: uppercase;
+      white-space: nowrap;
+      color: var(--violet);
+      text-shadow: 0.5vw -0.35vw 0 #05030a;
+    }
+ 
+    .about-dots {
+      position: absolute;
+      right: 2.5vw;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 8;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+ 
+    .about-dots span {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--violet);
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+ 
+    .about-dots span:nth-child(2) { background: transparent; border: 2px solid var(--violet); }
+    .about-dots span:hover { transform: scale(1.4); }
+ 
+    .about-row {
+      position: absolute;
+      left: 2.8%;
+      z-index: 6;
+      display: flex;
+      align-items: flex-start;
+    }
+ 
+    .skills-row { top: 68.5%; }
+    .tools-row  { top: 85.5%; }
+ 
+    .row-label {
+      width: 4.7vw;
+      font-family: var(--home-font);
+      font-size: 16px;
+      color: var(--text);
+      white-space: nowrap;
+    }
+ 
+    .skills-row .row-label { line-height: 4vw; }
+    .tools-row .row-label  { line-height: 4.4vw; }
+ 
+    .skill,
+    .tool {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+ 
+    .skill { width: 6vw; margin-right: 0.8vw; }
+    .tool  { width: 6vw; margin-right: 0.8vw; }
+ 
+    .skill p,
+    .tool p {
+      margin-top: 0.5vw;
+      font-family: var(--home-font);
+      font-size: 11px;
+      line-height: 1.3;
+      color: var(--text);
+      white-space: normal;
+      text-align: center;
+    }
+ 
+    .ring {
+      --pct: 80;
+      width: 4vw;
+      height: 4vw;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: conic-gradient(var(--violet-light) calc(var(--pct) * 1%), rgba(167, 139, 250, 0.22) 0);
+      box-shadow: 0 0 1vw rgba(139, 92, 246, 0.4);
+    }
+ 
+    .ring span {
+      width: 3.2vw;
+      height: 3.2vw;
+      border-radius: 50%;
+      background: var(--bg-soft);
+      display: grid;
+      place-items: center;
+      font-family: var(--home-font);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+    }
+ 
+    .tool-box {
+      width: 4.4vw;
+      height: 4.4vw;
+      border-radius: 0.3vw;
+      background: #fff;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+ 
+    .tool-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+ 
+    .tool-box:hover {
+      transform: translateY(-0.25vw);
+      box-shadow: 0 0.4vw 1.2vw rgba(139, 92, 246, 0.55);
+    }
+ 
+    .about-text {
+      position: absolute;
+      right: 4.5%;
+      bottom: 6.5%;
+      width: 35%;
+      z-index: 6;
+      font-family: var(--home-font);
+      font-size: 14px;
+      line-height: 1.6;
+      font-weight: 500;
+      color: var(--muted);
+      text-align: right;
+    }
+ 
+    /* ============ PROJECTS ============ */
+    .projects {
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 7vh 0 5vh;
+      /* Starts with the exact colors of the bottom edge of the About page,
+         so there is no cut between the two pages. */
+      background: linear-gradient(90deg, #0c071a 0%, #1d0a45 39.55%, #6d28d9 100%);
+    }
+ 
+    .projects-title {
+      position: relative;
+      z-index: 5;
+      font-size: 40px;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #fff 40%, var(--violet-light));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+ 
+    /* Big outlined word behind the cards (same style as SHAIRA on the Home page) */
+    .cf-bg-text {
+      position: absolute;
+      left: 50%;
+      top: calc(20px - 4vh);      /* sits behind the "Projects" title, like the name on the Home page */
+      transform: translate(-50%, -50%);
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(90px, 14vw, 240px);
+      font-weight: 900;
+      letter-spacing: 4px;
+      white-space: nowrap;
+      color: transparent;
+      -webkit-text-stroke: 2px var(--outline);
+      user-select: none;
+      pointer-events: none;
+      z-index: 0;
+    }
+ 
+    .cf-stage {
+      position: relative;
+      width: 100%;
+      height: 440px;
+      margin-top: 4vh;
+      perspective: 1400px;
+      cursor: grab;
+      touch-action: pan-y;
+    }
+ 
+    .cf-card {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 300px;
+      height: 380px;
+      margin: -190px 0 0 -150px;
+      border-radius: 24px;
+      overflow: hidden;
+      background: linear-gradient(160deg, var(--violet-dark), var(--bg-soft) 60%);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), 0 0 40px rgba(139, 92, 246, 0.18);
+      cursor: pointer;
+      will-change: transform;
+      transition: transform 0.6s cubic-bezier(0.22, 0.8, 0.3, 1), opacity 0.6s ease;
+    }
+
+    .cf-inner {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      transform-style: preserve-3d;
+      transition: transform 0.65s ease;
+    }
+
+    .cf-card.is-flipped .cf-inner { transform: rotateY(180deg); }
+
+    .cf-front,
+    .cf-back {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      border-radius: inherit;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+
+    .cf-back {
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 32px 26px;
+      background: linear-gradient(145deg, #24104c, #100b1e 75%);
+      text-align: left;
+    }
+
+    .cf-back h3 {
+      margin-bottom: 14px;
+      color: var(--violet-light);
+      font-family: var(--home-font);
+      font-size: 23px;
+    }
+
+    .cf-back p {
+      color: var(--text);
+      font-family: var(--home-font);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .cf-flip-btn {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      z-index: 5;
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 999px;
+      background: rgba(8, 6, 15, 0.75);
+      color: #fff;
+      font: 600 12px var(--home-font);
+      cursor: pointer;
+    }
+
+    .cf-flip-btn:hover,
+    .cf-flip-btn:focus-visible {
+      background: var(--violet);
+      outline: none;
+    }
+ 
+    .cf-card.is-active {
+      cursor: default;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6), 0 0 60px rgba(139, 92, 246, 0.35);
+    }
+ 
+    .cf-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background: rgba(8, 6, 15, var(--dim, 0));
+      transition: background 0.6s ease;
+      pointer-events: none;
+    }
+ 
+    .cf-img {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      font-family: var(--home-font);
+      font-size: 13px;
+      color: var(--muted);
+    }
+ 
+    .cf-img::before { content: "Your Image Here"; }
+ 
+    .cf-img img,
+    .cf-img video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+ 
+    .cf-img img:not([src]),
+    .cf-img img[src=""] { display: none; }
+ 
+    .cf-info {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      padding: 50px 20px 18px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      background: linear-gradient(to top, rgba(8, 6, 15, 0.88), transparent);
+    }
+ 
+    /* Match the player text below the cards. */
+    .cf-info > div:first-child {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      font-family: var(--home-font);
+    }
+ 
+    .cf-title {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #fff;
+    }
+ 
+    .cf-sub {
+      margin-top: 4px;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.3;
+      color: var(--muted);
+    }
+ 
+    .cf-eq { display: none; align-items: flex-end; gap: 3px; height: 16px; }
+    .cf-card.is-active .cf-eq { display: flex; }
+ 
+    .cf-eq i {
+      width: 3px;
+      height: 40%;
+      border-radius: 2px;
+      background: var(--violet-light);
+      animation: cfEq 1s ease-in-out infinite;
+    }
+ 
+    .cf-eq i:nth-child(2) { animation-delay: -0.4s; }
+    .cf-eq i:nth-child(3) { animation-delay: -0.7s; }
+    .projects.is-paused .cf-eq i { animation-play-state: paused; }
+ 
+    @keyframes cfEq {
+      0%, 100% { height: 30%; }
+      50%      { height: 100%; }
+    }
+ 
+    .cf-player {
+      position: relative;
+      z-index: 5;
+      width: 640px;
+      margin-top: 3vh;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    }
+ 
+    .ic {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+ 
+    .ic.fill { fill: currentColor; stroke: none; }
+ 
+    .cf-btn {
+      display: grid;
+      place-items: center;
+      padding: 4px;
+      border: 0;
+      background: none;
+      color: var(--text);
+      opacity: 0.85;
+      cursor: pointer;
+      transition: transform 0.2s, opacity 0.2s, color 0.2s;
+    }
+ 
+    .cf-btn:hover { opacity: 1; color: var(--violet-light); transform: scale(1.12); }
+ 
+    .cf-mini {
+      position: relative;
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 8px;
+    }
+ 
+    .cf-thumb {
+      flex: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      overflow: hidden;
+      background: linear-gradient(160deg, var(--violet-dark), var(--bg-soft) 60%);
+    }
+ 
+    .cf-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .cf-thumb img:not([src]),
+    .cf-thumb img[src=""] { display: none; }
+ 
+    .cf-mini-text {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      font-family: var(--home-font);
+    }
+ 
+    .cf-mini-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+ 
+    .cf-mini-sub {
+      margin-top: 2px;
+      font-family: "Nanum Brush Script", cursive;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+ 
+    .cf-progress {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 2px;
+      border-radius: 2px;
+      background: rgba(255, 255, 255, 0.18);
+    }
+ 
+    .cf-progress span {
+      display: block;
+      height: 100%;
+      width: 0;
+      border-radius: 2px;
+      background: var(--violet-light);
+      transition: width 0.6s cubic-bezier(0.22, 0.8, 0.3, 1);
+    }
+ 
+    .cf-check { color: var(--violet); }
+ 
+    .cf-controls {
+      position: relative;
+      z-index: 5;
+      margin-top: 26px;
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      color: var(--text);
+    }
+ 
+    .cf-line {
+      width: 110px;
+      height: 2px;
+      border-radius: 2px;
+      background: rgba(255, 255, 255, 0.22);
+    }
+ 
+    .cf-vol { opacity: 0.7; }
+    .cf-controls .cf-btn .ic { width: 26px; height: 26px; }
+    .cf-controls .cf-play .ic { width: 38px; height: 38px; }
+ 
+    .cf-play .i-play { display: none; }
+    .projects.is-paused .cf-play .i-play { display: block; }
+    .projects.is-paused .cf-play .i-pause { display: none; }
+    .projects.is-video-playing .cf-play .i-play { display: none; }
+    .projects.is-video-playing .cf-play .i-pause { display: block; }
+ 
+    .projects-dots {
+      position: absolute;
+      right: 2.5vw;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 8;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+ 
+    .projects-dots span {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--violet);
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+ 
+    .projects-dots span:nth-child(3) { background: transparent; border: 2px solid var(--violet); }
+    .projects-dots span:hover { transform: scale(1.4); }
+ 
+    /* Centering (title, player bar, bottom controls) */
+    .projects { width: 100%; text-align: center; }
+    .projects-title { align-self: center; margin-left: auto; margin-right: auto; text-align: center; }
+    .cf-player { align-self: center; margin-left: auto; margin-right: auto; }
+    .cf-controls { align-self: center; width: 100%; justify-content: center; }
+ 
+    /* ============ CONTACT ============ */
+    .contact {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      /* Same gradient as the Projects page, so the two pages connect with no cut */
+      background: linear-gradient(90deg, #0c071a 0%, #1d0a45 39.55%, #6d28d9 100%);
+    }
+ 
+    /* Thin, straight violet rule at the top of the Contact page. */
+    .contact::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 20px;
+      z-index: 7;
+      background: var(--violet);
+      transform: none;
+      clip-path: none;
+      pointer-events: none;
+    }
+ 
+    /* Title: same style as "Projects" */
+    .contact-title {
+      position: absolute;
+      left: 50%;
+      top: calc(3vw + 5vh + 20px);
+      transform: translate(-50%, -50%);
+      z-index: 5;
+      font-size: 40px;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #fff 40%, var(--violet-light));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+ 
+    /* Big outlined word behind the title: same style as the one behind Projects */
+    .contact-bg-text {
+      position: absolute;
+      left: 50%;
+      top: calc(3vw + 5vh + 20px);
+      transform: translate(-50%, -50%);
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(90px, 14vw, 240px);
+      font-weight: 900;
+      letter-spacing: 4px;
+      white-space: nowrap;
+      color: transparent;
+      -webkit-text-stroke: 2px var(--outline);
+      user-select: none;
+      pointer-events: none;
+      z-index: 0;
+    }
+ 
+    /* Strong diagonal divider beside the heading; the top rule stays horizontal. */
+    .contact-line {
+      position: absolute;
+      top: 0;
+      left: 19.5%;
+      width: 8px;
+      height: 120%;
+      z-index: 3;
+      pointer-events: none;
+      background: var(--violet-light);
+      box-shadow: 0 0 8px var(--violet);
+      transform: rotate(-32deg);
+      transform-origin: top left;
+    }
+ 
+    .contact-list {
+      position: absolute;
+      left: 47%;
+      top: 32%;
+      z-index: 6;
+      display: flex;
+      flex-direction: column;
+      gap: 1.9vw;
+      font-family: var(--home-font);
+      font-size: 2.3vw;
+      font-weight: 500;
+      color: var(--text);
+    }
+ 
+    .contact-item { display: flex; align-items: center; gap: 1.2vw; }
+    .contact-item .ic { width: 3.3vw; height: 3.3vw; flex: none; stroke-width: 1.5; }
+    .contact-item a { transition: color 0.3s; }
+    .contact-item a:hover { color: var(--violet-light); }
+ 
+    .contact-connect {
+      position: absolute;
+      left: 2.8%;
+      top: 60%;
+      z-index: 6;
+      font-family: var(--home-font);
+      font-size: 2.3vw;
+      font-weight: 500;
+      color: var(--text);
+    }
+ 
+    .contact-thanks {
+      position: absolute;
+      left: 3%;
+      top: 72%;
+      width: 31.5%;
+      z-index: 6;
+      font-family: var(--home-font);
+      font-size: 1.8vw;
+      line-height: 1.5;
+      color: var(--muted);
+      text-align: justify;
+    }
+ 
+    .contact-qr {
+      position: absolute;
+      left: 60.5%;
+      top: 68%;
+      width: 16.3%;
+      aspect-ratio: 1 / 1;
+      z-index: 6;
+      background: #fff;
+      overflow: hidden;
+    }
+ 
+    .contact-qr img { width: 100%; height: 100%; object-fit: contain; display: block; }
+ 
+    .contact-scan {
+      position: absolute;
+      left: 80%;
+      top: 75%;
+      width: 11%;
+      z-index: 6;
+      font-family: var(--home-font);
+      font-size: 1.5vw;
+      line-height: 1.5;
+      color: var(--muted);
+      text-align: justify;
+    }
+ 
+    .contact-dots {
+      position: absolute;
+      right: 2.5vw;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 8;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+ 
+    .contact-dots span {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--violet);
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+ 
+    .contact-dots span:nth-child(4) { background: transparent; border: 2px solid var(--violet); }
+    .contact-dots span:hover { transform: scale(1.4); }
+ 
+    /* ============ ANIMATIONS ============ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+ 
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+ 
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(80px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+ 
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-10px); }
+    }
+ 
+    nav            { animation: fadeIn 0.8s ease both; }
+    .bg-text       { animation: fadeIn 1.5s ease both; }
+    .content h1    { animation: fadeUp 0.8s 0.2s ease both; }
+    .content p     { animation: fadeUp 0.8s 0.4s ease both; }
+    .buttons       { animation: fadeUp 0.8s 0.55s ease both; }
+    .korean        { animation: fadeUp 0.8s 0.7s ease both; }
+    .hero-image,
+    .diagonal-line { animation: slideIn 1s 0.3s ease both; }
+ 
+    /* ============ DESKTOP ONLY ============ */
+    body { min-width: 1200px; }
+  </style>
+</head>
+ 
+<body>
+ 
+  <!-- ===================== PAGE 1: HOME ===================== -->
+  <section class="hero" id="home">
+ 
+    <div class="bg-text">SHAIRA</div>
+ 
+    <nav>
+      <a href="#home" class="nav-name">Shaira Sasan</a>
+      <span class="divider">|</span>
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+ 
+    <div class="content">
+      <h1>Shaira </h1>
+ 
+      <p>
+        I'm an aspiring 3D Artist and Digital Animation student passionate
+        about bringing creative ideas to life through 3D modeling and visual
+        storytelling. I enjoy exploring new techniques and turning imagination
+        into creative digital works.
+      </p>
+ 
+      <div class="buttons">
+        <a href="#projects" class="btn filled">View Projects</a>
+        <a href="#contact" class="btn outline">Contact Me</a>
+      </div>
+ 
+      <div class="korean">샤이라 사산</div>
+    </div>
+ 
+    <div class="hero-image">
+      <img src="https://scontent.fcrk1-4.fna.fbcdn.net/v/t39.30808-6/903070196_1706863627672567_1525536957962205328_n.jpg?stp=dst-jpg_tt6&cstp=mx1200x895&ctp=s720x720&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFWzi7o4WUjTTMtrzoAXPT9kSWjLxa4he2RJaMvFriF7QUTS1b4H0OIF1BvoYZHV4f6y6H_fk-MAk580R_U5jpy&_nc_ohc=O2fvfroo_mkQ7kNvwE27uAQ&_nc_oc=AdqjArjpkBbydEHSB2IPsSL-sePsVE39cHXgmz27fFbxoc7e8NTQQyNn2tGly5dVAfQ&_nc_zt=23&_nc_ht=scontent.fcrk1-4.fna&_nc_gid=KRGozReaj1FRIxnGLlZ5Xg&_nc_ss=7b2a8&oh=00_AQQoh0vK1B0jxVP8ge0UIjM9ToijD2W2rgf14Dk2LaJtjA&oe=6AFCE721" alt="Shaira Sasan" />
+    </div>
+ 
+    <div class="diagonal-line"></div>
+ 
+    <div class="dots">
+      <span></span><span></span><span></span><span></span>
+    </div>
+ 
+    <div class="signature">
+      <div class="top">P O R T F O L I O</div>
+      <div class="script">Shaira Sasan</div>
+    </div>
+ 
+  </section>
+ 
+  <!-- ===================== PAGE 2: ABOUT ===================== -->
+  <section class="about" id="about">
+ 
+    <div class="about-photo">
+      <img src="https://scontent.fcrk1-5.fna.fbcdn.net/v/t39.30808-6/905984866_1708602474165349_5112504619341559403_n.jpg?stp=dst-jpg_tt6&cstp=mx1529x705&ctp=p180x540&_nc_cat=102&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHZMOFYudTWcU5m6IvqWiU0nWb1O1G5MkGdZvU7UbkyQat8P54vt1IH14j9fAghNuZdfFazHTyuNGCtFWuN94iy&_nc_ohc=cNzDfA4pe7cQ7kNvwF_Htcr&_nc_oc=AdrIoUi6Nx1DI5aLMZgjn9hC3hYDGMUeXIaRCBAxIgrSPX397apa8GK07JbEoH0Lwvc&_nc_zt=23&_nc_ht=scontent.fcrk1-5.fna&_nc_gid=3OaZNVpOU_qRAUoz_nQOgA&_nc_ss=7b2a8&oh=00_AQQkulJPLnN7ZfuvK0xGGbNsOlthuLLqCLgLMvCqTXkqDQ&oe=6AFCE27F" alt="Shaira Sasan" />
+    </div>
+ 
+    <div class="about-band"></div>
+    <div class="about-band-name">Shaira Sasan</div>
+ 
+    <h2 class="about-title">About Me</h2>
+ 
+    <div class="about-dots">
+      <span></span><span></span><span></span><span></span>
+    </div>
+ 
+    <div class="about-row skills-row">
+      <span class="row-label">Skills:</span>
+      <div class="skill"><div class="ring" style="--pct: 80"><span>85%</span></div><p>3D Modeling</p></div>
+      <div class="skill"><div class="ring" style="--pct: 80"><span>85%</span></div><p>Environment Modeling</p></div>
+      <div class="skill"><div class="ring" style="--pct: 80"><span>85%</span></div><p>Character Modeling</p></div>
+      <div class="skill"><div class="ring" style="--pct: 80"><span>85%</span></div><p>3D Asset Modeling</p></div>
+      <div class="skill"><div class="ring" style="--pct: 50"><span>50%</span></div><p>3D Animation</p></div>
+      <div class="skill"><div class="ring" style="--pct: 50"><span>50%</span></div><p>Video Editing</p></div>
+    </div>
+ 
+    <div class="about-row tools-row">
+      <span class="row-label">Tools:</span>
+      <div class="tool">
+        <div class="tool-box"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsu9FzubUAcnC2ZTgMrweWowbefTSTKs7L4vNRSw2veQ&s=10" alt="Blender" /></div>
+        <p>Blender</p>
+      </div>
+      <div class="tool">
+        <div class="tool-box"><img src="https://cdn.freebiesupply.com/logos/large/2x/premiere-cc-logo-png-transparent.png" alt="Adobe Premiere Pro" /></div>
+        <p>Adobe Premiere Pro</p>
+      </div>
+      <div class="tool">
+        <div class="tool-box"><img src="https://images.genai.works/capcut_logo_on_transparent_white_background_free_vector_6bb6d15f1f.jpg?width=3840&height=3840&quality=50" alt="Capcut" /></div>
+        <p>Capcut</p>
+      </div>
+    </div>
+ 
+    <p class="about-text">
+      I am a fourth-year BS Entertainment and Multimedia Computing student majoring in Digital Animation at Jose
+      Rizal University. Throughout my academic journey, I have developed an interest in 3D modeling and digital art,
+      where I enjoy transforming ideas into creative visual outputs.
+ 
+      As I continue learning and exploring different techniques, I aim to improve my skills, gain more experience,
+      and grow as an aspiring 3D Artist in the creative industry.
+    </p>
+ 
+  </section>
+ 
+  <!-- ===================== PAGE 3: PROJECTS ===================== -->
+  <section class="projects" id="projects">
+ 
+    <h2 class="projects-title">Projects</h2>
+ 
+    <!-- To add a project, copy one <article> block. To remove one, delete it. -->
+    <div class="cf-stage" id="cfStage">
+ 
+      <!-- Big outlined background word: change the text here if you want -->
+      <div class="cf-bg-text">PROJECTS</div>
+ 
+      <article class="cf-card">
+        <div class="cf-inner">
+          <div class="cf-front">
+            <div class="cf-img">
+              <img src="https://cdnb.artstation.com/p/assets/images/images/097/253/285/large/shaira-sasan-4.webp?1773652113" alt="Quiet Cabin Morning" draggable="false" />
+            </div>
+            <div class="cf-info">
+              <div>
+                <div class="cf-title">Quiet Cabin Morning</div>
+                <div class="cf-sub">Shaira Sasan</div>
+              </div>
+              <div class="cf-eq"><i></i><i></i><i></i></div>
+            </div>
+            <button class="cf-flip-btn" type="button" aria-label="Show details for Quiet Cabin Morning">Details</button>
+          </div>
+          <div class="cf-back">
+            <h3>Quiet Cabin Morning</h3>
+            <p>Quiet Cabin Morning is a cozy 3D environment scene inspired by peaceful mornings in a forest cabin. The warm interior lighting contrasts with the cool, foggy view outside the window to create a calm and relaxing atmosphere. Small details like the workspace, books, and personal objects were added to make the space feel lived-in and comforting.</p>
+            <button class="cf-flip-btn" type="button" aria-label="Back to Quiet Cabin Morning artwork">Back to artwork</button>
+          </div>
+        </div>
+      </article>
+ 
+      <article class="cf-card">
+        <div class="cf-inner">
+          <div class="cf-front">
+            <div class="cf-img">
+              <img src="https://cdna.artstation.com/p/assets/images/images/097/253/130/large/shaira-sasan-5.webp?1773651751" alt="Modern Apartment" draggable="false" />
+            </div>
+            <div class="cf-info">
+              <div>
+                <div class="cf-title">Modern Apartment</div>
+                <div class="cf-sub">Shaira Sasan</div>
+              </div>
+              <div class="cf-eq"><i></i><i></i><i></i></div>
+            </div>
+            <button class="cf-flip-btn" type="button" aria-label="Show details for Modern Apartment">Details</button>
+          </div>
+          <div class="cf-back">
+            <h3>Modern Apartment</h3>
+            <p>A contemporary three-story home exterior designed through our outdoor architectural activity. This project emphasizes sleek shapes, organized balcony railings, and lifelike lighting to create a modern urban look.
+Created and visualized in Blender.
+
+</p>
+            <button class="cf-flip-btn" type="button" aria-label="Back to Modern Apartment artwork">Back to artwork</button>
+          </div>
+        </div>
+      </article>
+ 
+      <article class="cf-card">
+        <div class="cf-inner">
+          <div class="cf-front">
+            <div class="cf-img">
+              <img src="https://cdna.artstation.com/p/assets/images/images/097/253/196/large/shaira-sasan-2.webp?1773651906" alt="PermPoon" draggable="false" />
+            </div>
+            <div class="cf-info">
+              <div>
+                <div class="cf-title">PermPoon</div>
+                <div class="cf-sub">Shaira Sasan</div>
+              </div>
+              <div class="cf-eq"><i></i><i></i><i></i></div>
+            </div>
+            <button class="cf-flip-btn" type="button" aria-label="Show details for PermPoon">Details</button>
+          </div>
+          <div class="cf-back">
+            <h3>PermPoon</h3>
+            <p>This is a 3D recreation of PeRmPooN, the mascot for the PondPhuwin couple. I have recreated the character featuring its turquoise body, orange torso, and distinctive yellow headphones. The design emphasizes the heart detail on the cheek, the “PP” logo on the chest, and the “PeRmPooN” text on the back. My aim was to convey its playful spirit while showcasing it in a refined 3D style..</p>
+            <button class="cf-flip-btn" type="button" aria-label="Back to PermPoon artwork">Back to artwork</button>
+          </div>
+        </div>
+      </article>
+ 
+      <article class="cf-card">
+        <div class="cf-inner">
+          <div class="cf-front">
+            <div class="cf-img">
+              <img src="https://cdna.artstation.com/p/assets/images/images/097/253/172/large/shaira-sasan-3.webp?1773651868" alt="Polcasan" draggable="false" />
+            </div>
+            <div class="cf-info">
+              <div>
+                <div class="cf-title">Polcasan</div>
+                <div class="cf-sub">Shaira Sasan</div>
+              </div>
+              <div class="cf-eq"><i></i><i></i><i></i></div>
+            </div>
+            <button class="cf-flip-btn" type="button" aria-label="Show details for Polcasan">Details</button>
+          </div>
+          <div class="cf-back">
+            <h3>Polcasan</h3>
+            <p>Polcasan is a cherished mascot associated with TayNew, and this 3D version is my fan art tribute to them. I tried to reflect the character’s gentle, rounded shapes and its sweet, appealing expression while staying true to the original mascot's design.</p>
+            <button class="cf-flip-btn" type="button" aria-label="Back to Polcasan artwork">Back to artwork</button>
+          </div>
+        </div>
+      </article>
+ 
+      <article class="cf-card">
+        <div class="cf-inner">
+          <div class="cf-front">
+            <div class="cf-img">
+              <video src="https://cdn.artstation.com/p/video_sources/003/112/817/skin-elixir.mp4" controls preload="metadata" aria-label="Skin Elixir project video"></video>
+            </div>
+            <div class="cf-info">
+              <div>
+                <div class="cf-title">Skin Elixir</div>
+                <div class="cf-sub">Shaira Sasan</div>
+              </div>
+              <div class="cf-eq"><i></i><i></i><i></i></div>
+            </div>
+            <button class="cf-flip-btn" type="button" aria-label="Show details for Skin Elixir">Details</button>
+          </div>
+          <div class="cf-back">
+            <h3>Skin Elixir</h3>
+            <p>Skin Elixir is a 3D visualization project aimed at examining lighting, realistic materials, and a commercial presentation style.
+I focused on clear reflections, accurate glass materials, and a sophisticated ambiance to emphasize the product's high-end quality. This project provided me with the opportunity to refine my skills in product staging, composition, and cinematic lighting techniques.
+Created, textured, and rendered using Blender.</p>
+            <button class="cf-flip-btn" type="button" aria-label="Back to Skin Elixir video">Back to video</button>
+          </div>
+        </div>
+      </article>
+ 
+    </div>
+ 
+    <div class="cf-player">
+      <button class="cf-btn" id="cfShuffle" aria-label="Random project">
+        <svg class="ic" viewBox="0 0 24 24"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
+      </button>
+      <button class="cf-btn" id="cfPrev" aria-label="Previous project">
+        <svg class="ic" viewBox="0 0 24 24"><polygon points="19 20 9 12 19 4 19 20"/><line x1="5" y1="19" x2="5" y2="5"/></svg>
+      </button>
+ 
+      <div class="cf-mini">
+        <a class="cf-thumb" id="cfThumbLink" target="_blank" rel="noopener noreferrer" aria-label="Open project image">
+          <img id="cfMiniImg" alt="" />
+        </a>
+        <div class="cf-mini-text">
+          <div class="cf-mini-title" id="cfMiniTitle"></div>
+          <div class="cf-mini-sub" id="cfMiniSub">샤이라 사산</div>
+        </div>
+        <div class="cf-progress"><span id="cfProgress"></span></div>
+      </div>
+ 
+      <svg class="ic cf-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="currentColor" stroke="none"/><path d="M7 12.5l3.2 3.2L17 9" stroke="#fff" stroke-width="2.4"/></svg>
+      <svg class="ic" viewBox="0 0 24 24"><path d="M2 16.1A5 5 0 0 1 5.9 20M2 12.05A9 9 0 0 1 9.95 20M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6"/><line x1="2" y1="20" x2="2.01" y2="20"/></svg>
+      <svg class="ic" viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+    </div>
+ 
+    <div class="cf-controls">
+      <svg class="ic cf-vol" viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/></svg>
+      <span class="cf-line"></span>
+      <button class="cf-btn" id="cfBack" aria-label="Previous project">
+        <svg class="ic" viewBox="0 0 24 24"><polygon points="11 19 2 12 11 5 11 19"/><polygon points="22 19 13 12 22 5 22 19"/></svg>
+      </button>
+      <button class="cf-btn cf-play" id="cfPlay" aria-label="Pause or play">
+        <svg class="ic fill i-pause" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+        <svg class="ic fill i-play" viewBox="0 0 24 24"><polygon points="7 4 20 12 7 20 7 4"/></svg>
+      </button>
+      <button class="cf-btn" id="cfFwd" aria-label="Next project">
+        <svg class="ic" viewBox="0 0 24 24"><polygon points="13 19 22 12 13 5 13 19"/><polygon points="2 19 11 12 2 5 2 19"/></svg>
+      </button>
+      <span class="cf-line"></span>
+      <svg class="ic cf-vol" viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+    </div>
+ 
+    <div class="projects-dots">
+      <span></span><span></span><span></span><span></span>
+    </div>
+ 
+  </section>
+ 
+  <!-- ===================== PAGE 4: CONTACT ===================== -->
+  <section class="contact" id="contact">
+ 
+    <div class="contact-bg-text">CONTACT</div>
+    <h2 class="contact-title">Contact</h2>
+ 
+    <div class="contact-line"></div>
+ 
+    <div class="contact-list">
+      <div class="contact-item">
+        <svg class="ic" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="1"/><polyline points="2 5 12 14 22 5"/><line x1="2" y1="19" x2="9" y2="11"/><line x1="22" y1="19" x2="15" y2="11"/></svg>
+        <a href="mailto:shysasan222@gmail.com">shysasan222@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M2 18l7-12h4l-7 12z"/><path d="M9 6l8 14h5L14 6z"/><path d="M12 18h8"/></svg>
+        <a href="https://www.artstation.com/lil_shaiii" target="_blank" rel="noopener noreferrer">https://www.artstation.com/lil_shaiii</a>
+      </div>
+      <div class="contact-item">
+        <svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.5"/><path d="M16.5 15.7v1.5a1 1 0 0 1-1.1 1 8.7 8.7 0 0 1-3.8-1.4 8.6 8.6 0 0 1-2.7-2.7 8.7 8.7 0 0 1-1.4-3.8 1 1 0 0 1 1-1.1h1.5a1 1 0 0 1 1 .9c.1.5.2.9.4 1.4a1 1 0 0 1-.2 1l-.6.6a7 7 0 0 0 2.7 2.7l.6-.6a1 1 0 0 1 1-.2c.5.2.9.3 1.4.4a1 1 0 0 1 .9 1z"/></svg>
+        <span>+639 350 110 868 / +639 925 823 886</span>
+      </div>
+    </div>
+ 
+    <div class="contact-connect">Let’s Connect!</div>
+ 
+    <p class="contact-thanks">
+      Thank you for taking the time to view my portfolio I’m always looking for
+      opportunitities to learn, create and keep growing as an artist.
+    </p>
+ 
+    <div class="contact-qr">
+      <!-- >>> PUT YOUR QR CODE IMAGE LINK/FILE between the quotes of src="" <<< -->
+      <img src="https://scontent.fcrk1-1.fna.fbcdn.net/v/t39.30808-6/903978023_1707393324286264_1618411116453888941_n.jpg?stp=dst-jpg_tt6&cstp=mx1024x1024&ctp=s1024x1024&_nc_cat=110&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHFA0XXFKoGp2i9Hnbgkc_8vkLm0Nr2S8u-QubQ2vZLy-HmHh7NZcDED3pbQ42K39t3rb2KqSSEa06ERCsHCYUq&_nc_ohc=Fh7Qglu5XMEQ7kNvwEpqglX&_nc_oc=Adot360I5krPa4PsgnVTm83dV5rhNwgdBAxxem0avY89Y6HEQfse6muCERd9jFVEKeI&_nc_zt=23&_nc_ht=scontent.fcrk1-1.fna&_nc_gid=MoeaBGVAsOv_wputi3CVAw&_nc_ss=7b2a8&oh=00_AQQIVbqHRJwk_xbkPU5fIbOmPUygVd5S_n9jb2fPkEwWTw&oe=6AFBBA94" alt="QR code to Shaira's portfolio" />
+    </div>
+    <p class="contact-scan">Scan me to see more of my works</p>
+ 
+    <div class="contact-dots">
+      <span></span><span></span><span></span><span></span>
+    </div>
+ 
+  </section>
+ 
+  <script>
+    (function () {
+      var section = document.getElementById("projects");
+      var stage   = document.getElementById("cfStage");
+      var cards   = Array.prototype.slice.call(stage.querySelectorAll(".cf-card"));
+      var n       = cards.length;
+      var index   = Math.floor(n / 2);
+      var playing = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var timer   = null;
+      var wheelLock = false;
+      var dragStartX = null;
+      var dragged = false;
+ 
+      var miniImg   = document.getElementById("cfMiniImg");
+      var thumbLink = document.getElementById("cfThumbLink");
+      var miniTitle = document.getElementById("cfMiniTitle");
+      var progress  = document.getElementById("cfProgress");
+ 
+      var X1 = 265, X_STEP = 215;
+      var SCALE = [1, 0.84, 0.68, 0.6];
+      var OPACITY = [1, 0.9, 0.6, 0];
+ 
+      function render() {
+        cards.forEach(function (card, i) {
+          var cardVideo = card.querySelector("video");
+          if (cardVideo && i !== index) { cardVideo.pause(); }
+          card.classList.remove("is-flipped");
+          var off = i - index;
+          var abs = Math.abs(off);
+          var dir = off === 0 ? 0 : off / abs;
+          var k = Math.min(abs, 3);
+          var x = abs === 0 ? 0 : dir * (X1 + (abs - 1) * X_STEP);
+ 
+          card.style.transform =
+            "translateX(" + x + "px) translateZ(" + (-abs * 60) + "px) " +
+            "rotateY(" + (-dir * 28) + "deg) scale(" + SCALE[k] + ")";
+          card.style.opacity = OPACITY[k];
+          card.style.zIndex = 10 - abs;
+          card.style.pointerEvents = abs > 2 ? "none" : "auto";
+          card.style.setProperty("--dim", Math.min(abs * 0.3, 0.7));
+          card.classList.toggle("is-active", off === 0);
+        });
+ 
+        var active = cards[index];
+        miniTitle.textContent = active.querySelector(".cf-title").textContent;
+        var img = active.querySelector("img");
+        var video = active.querySelector("video");
+        var src = video ? video.getAttribute("src") : (img && img.getAttribute("src"));
+        if (img && src && !video) {
+          miniImg.setAttribute("src", src);
+        } else {
+          miniImg.removeAttribute("src");
+        }
+        if (src) { thumbLink.href = src; }
+        else { thumbLink.removeAttribute("href"); }
+        progress.style.width = ((index + 1) / n * 100) + "%";
+      }
+ 
+      function move(step, wrap) {
+        var next = index + step;
+        if (wrap) { next = (next + n) % n; }
+        else { next = Math.max(0, Math.min(n - 1, next)); }
+        index = next;
+        render();
+      }
+ 
+      function inView() {
+        var r = stage.getBoundingClientRect();
+        return r.top < window.innerHeight && r.bottom > 0;
+      }
+ 
+      function restart() {
+        clearInterval(timer);
+        if (playing) {
+          timer = setInterval(function () { if (inView()) { move(1, true); } }, 4000);
+        }
+      }
+ 
+      function setPlaying(value) {
+        playing = value;
+        section.classList.toggle("is-paused", !playing);
+        restart();
+      }
+ 
+      document.getElementById("cfPrev").addEventListener("click", function () { move(-1, true); restart(); });
+      document.getElementById("cfBack").addEventListener("click", function () { move(-1, true); restart(); });
+      document.getElementById("cfFwd").addEventListener("click",  function () { move(1, true);  restart(); });
+      document.getElementById("cfPlay").addEventListener("click", function () {
+        var video = cards[index].querySelector("video");
+        if (video) {
+          if (video.paused) {
+            video.play().catch(function () {});
+          } else {
+            video.pause();
+          }
+          return;
+        }
+        setPlaying(!playing);
+      });
+      document.getElementById("cfShuffle").addEventListener("click", function () {
+        if (n < 2) { return; }
+        var r = index;
+        while (r === index) { r = Math.floor(Math.random() * n); }
+        index = r;
+        render();
+        restart();
+      });
+ 
+      cards.forEach(function (card, i) {
+        var video = card.querySelector("video");
+        card.querySelectorAll(".cf-flip-btn").forEach(function (button) {
+          button.addEventListener("click", function (e) {
+            e.stopPropagation();
+            if (i !== index) {
+              index = i;
+              render();
+              restart();
+            }
+            var turningOver = !card.classList.contains("is-flipped");
+            card.classList.toggle("is-flipped", turningOver);
+            if (turningOver) {
+              setPlaying(false);
+              if (video) { video.pause(); }
+            }
+          });
+        });
+        if (video) {
+          video.addEventListener("play", function () {
+            section.classList.add("is-video-playing");
+            setPlaying(false);
+          });
+          video.addEventListener("pause", function () {
+            section.classList.remove("is-video-playing");
+          });
+          video.addEventListener("ended", function () {
+            section.classList.remove("is-video-playing");
+          });
+        }
+        card.addEventListener("click", function () {
+          if (dragged || i === index) { return; }
+          index = i;
+          render();
+          restart();
+        });
+      });
+ 
+      stage.addEventListener("wheel", function (e) {
+        var d = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : (e.shiftKey ? e.deltaY : 0);
+        if (Math.abs(d) < 12) { return; }
+        e.preventDefault();
+        if (wheelLock) { return; }
+        wheelLock = true;
+        setTimeout(function () { wheelLock = false; }, 380);
+        move(d > 0 ? 1 : -1, false);
+        restart();
+      }, { passive: false });
+ 
+      stage.addEventListener("pointerdown", function (e) { dragStartX = e.clientX; dragged = false; });
+      window.addEventListener("pointerup", function (e) {
+        if (dragStartX === null) { return; }
+        var dx = e.clientX - dragStartX;
+        dragStartX = null;
+        if (Math.abs(dx) > 50) {
+          dragged = true;
+          move(dx < 0 ? 1 : -1, false);
+          restart();
+        }
+      });
+ 
+      window.addEventListener("keydown", function (e) {
+        if (!inView()) { return; }
+        if (e.key === "ArrowRight") { move(1, false); restart(); }
+        if (e.key === "ArrowLeft")  { move(-1, false); restart(); }
+      });
+ 
+      section.classList.toggle("is-paused", !playing);
+      render();
+      restart();
+    })();
+  </script>
+ 
+</body>
+</html>
+ 
+
